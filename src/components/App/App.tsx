@@ -14,11 +14,9 @@ function App() {
 
   return (
     <div>
-      <Input
-        placeholder="Оставьте отзыв Артур Евгенич"
-        value={email}
-        onChange={onChange}
-      />
+      <Input placeholder="Имя пользователя" value={"Артур"} />
+      <Input placeholder="Пароль" value={"321321выффв"} type="password" />
+      <Input placeholder="Пароль" type="password" />
 
       <div style={{ marginTop: 20 }}></div>
 
