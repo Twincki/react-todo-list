@@ -18,13 +18,11 @@ export function Input(props: InputProps) {
 
   const { placeholder, value, onChange, type: baseType = "text" } = props;
 
-  const onChangeVisible = () => {
-    setIsVisible(!isVisible);
-  }
+  const onChangeVisible = () => setIsVisible((prevState) => !prevState);
 
   // Так как это необязательный параметр, при отсутсвии передаётся undefined
   // Для этого делается проверка, так как в случае undefined, при проверки legnth выскачит ошибка
-  const isValue = typeof value !== "undefined" && value.length > 0;
+  const isValue = Boolean(value && value.length);
 
   const isPassword = baseType === "password";
 
