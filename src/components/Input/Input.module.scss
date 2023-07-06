@@ -5,28 +5,20 @@
   height: 60px;
   padding: 10px 20px;
   border-radius: 4px;
-  border: 2px solid rgba(0, 0, 0, 0.10);
-  background-color: #fff;
+  border: 2px solid var(--input-border);
+  background-color: var(--input-bg-main);
 }
 
 .span {
   position: absolute;
-  color: rgba(0, 0, 0, 0.40);
+  color: var(--input-placeholder-color);
   font-size: 16px;
-  font-family: Brutal Type;
   top: 17px;
   left: 20px;
   font-weight: 400;
   pointer-events: none;
-}
 
-.active {
-  font-size: 13px;
-  transform: translateY(-10px);
-}
-
-.inputActive {
-  padding-top: 18px;
+  transition: all 0.1s linear;
 }
 
 .input {
@@ -42,3 +34,15 @@
     outline: none;
   }
 }
+
+.active {
+  .span {
+    font-size: 13px;
+    transform: translateY(-10px);
+  }
+
+  .input {
+    padding-top: 18px;
+  }
+}
+

@@ -9,14 +9,23 @@ function App() {
     setEmail(event.target.value);
   };
 
+  const onEnnder = () => console.log("Вы вошли");
+  const onOunt = () => console.log("Вы вышли");
+
   return (
     <div>
       <Input
-        placeholder="Адрес электронной почты"
+        placeholder="Оставьте отзыв Артур Евгенич"
         value={email}
         onChange={onChange}
       />
-      <Button children="ВОЙТИ" />
+
+      <div style={{ marginTop: 20 }}></div>
+
+      <Button onClick={onEnnder}>Войти</Button>
+      <Button onClick={onOunt}>Выйти</Button>
+
+      <Button onClick={onOunt} fullWidth>Кнопка на полный экран</Button>
     </div>
   );
 }

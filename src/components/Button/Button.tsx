@@ -1,21 +1,34 @@
-import React from "react";
-import styles from "./button.module.scss";
+import { ReactNode } from "react";
+import styles from "./Button.module.scss";
+import cx from "classnames";
 
-function onClick() {
-  console.log("Attempt to login user");
-}
+// TODO: Добавить цветовую схему
+// primary #0074e4
+// secondary #df3664
+
+type ButonSizes = 'small' | "medium";
 
 interface ButtonProps {
-  children?: string;
+  children: ReactNode;
+  onClick?: () => void;
+  size?: ButonSizes;
+  fullWidth?: boolean;
 }
 
 export function Button(props: ButtonProps) {
-  const { children } = props;
+  const { children, onClick, size = "medium", fullWidth } = props;
+
+  const mods = {
+    [styles.fullWidth]: fullWidth
+  }
+
+  const additional = [
+    styles[size],
+  ]
+
   return (
-    <div>
-      <button onClick={onClick} className={styles.root}>
-        <span className={styles.btnText}>{children}</span>
-      </button>
-    </div>
+    <button onClick={onClick} className={cx(styles.root, mods, additional)}>
+      {children}
+    </button>
   );
 }

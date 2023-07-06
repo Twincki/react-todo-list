@@ -1,6 +1,6 @@
+import { ChangeEvent } from "react";
 import cx from "classnames";
 import styles from "./Input.module.scss";
-import { ChangeEvent } from "react";
 
 interface InputProps {
   value?: string;
@@ -11,16 +11,15 @@ interface InputProps {
 export function Input(props: InputProps) {
   const { placeholder, value, onChange } = props;
 
-  const isValue = value && value.length > 0;
+  const isValue = typeof value !== "undefined" && value.length > 0;
 
   const mods = { [styles.active]: isValue };
-  const inputMods = { [styles.inputActive]: isValue };
 
   return (
-    <div className={styles.root}>
-      <span className={cx(styles.span, mods)}>{placeholder}</span>
+    <div className={cx(styles.root, mods)}>
+      <span className={styles.span}>{placeholder}</span>
       <input
-        className={cx(styles.input, inputMods)}
+        className={styles.input}
         value={value}
         onChange={onChange}
       />
