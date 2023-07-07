@@ -1,5 +1,4 @@
 .root {
-  background-color: var(--button-bg);
   border-radius: 5px;
   border: none;
   transition: 0.3s;
@@ -10,14 +9,6 @@
   font-size: 12px;
   color: var(--button-font-color);
   text-transform: uppercase;
-
-  &:hover {
-    background-color: #0061bb;
-  }
-  
-  &:active {
-    background-color: #0053a0;
-  }
 }
 
 .fullWidth {
@@ -31,4 +22,26 @@
 
 .medium {
   padding: 14px 39px;
+}
+
+.primary {
+  background-color: var(--button-primary);
+  &:hover {
+    background-color: var(--button-bg-primary-hover);
+  }
+  &:active {
+    background-color: var(--button-bg-primary-active);
+  }
+}
+
+.secondary {
+  background-color: var(--button-secondary);
+
+  &:hover {
+    background-color: var(--button-bg-secondary-hover);
+  }
+
+  &:active {
+    background-color: var(--button-bg-secondary-active);
+  }
 }

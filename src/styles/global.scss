@@ -4,13 +4,19 @@
   --main-bg: #d9e4f5;
   --font-color: #212121;
 
-  --button-bg: #0074e4;
+  // BUTTON
+  --button-primary: #0074e4;
+  --button-secondary: #df3664;
+  --button-bg-primary-hover: #0061bb;
+  --button-bg-primary-active: #0053a0;
+  --button-bg-secondary-hover: #b82c52;
+  --button-bg-secondary-active: #9d2647;
   --button-font-color: #ffff;
 
   // INPUT
   --input-bg-main: #fff;
-  --input-border: rgba(0, 0, 0, 0.10);
-  --input-placeholder-color: rgba(0, 0, 0, 0.40);
+  --input-border: rgba(0, 0, 0, 0.1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.4);
 }
 
 * {

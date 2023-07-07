@@ -21,9 +21,16 @@ function App() {
       <div style={{ marginTop: 20 }}></div>
 
       <Button onClick={onEnnder}>Войти</Button>
-      <Button onClick={onOunt}>Выйти</Button>
+      <Button bgColor={"secondary"} onClick={onOunt}>
+        Выйти
+      </Button>
 
-      <Button onClick={onOunt} fullWidth>Кнопка на полный экран</Button>
+      <div style={{ marginTop: 20 }}>
+        {" "}
+        <Button onClick={onOunt} fullWidth>
+          Кнопка на полный экран
+        </Button>
+      </div>
     </div>
   );
 }
