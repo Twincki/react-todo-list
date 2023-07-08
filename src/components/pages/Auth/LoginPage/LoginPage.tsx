@@ -4,6 +4,7 @@ import { Button } from "../../../Button/Button";
 import { AuthWrapper } from "../lib/components/AuthWrapper/AuthWrapper";
 import { AuthLink } from "../lib/components/AuthLink/AuthLink";
 import { ROUTES } from "../../../shared/lib/consts";
+import { useFormik } from "formik";
 
 import styles from "./LoginPage.module.scss";
 
@@ -14,10 +15,39 @@ interface LoginProps {
 export function LoginPage(props: LoginProps) {
   const { className } = props;
 
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
+  function onSubmit(event: any) {
+    event.preventDefault();
+  }
   return (
-    <AuthWrapper className={cx(styles.root, className)} title="Аутентификация">
-      <Input placeholder="Адрес электронной почты" />
-      <Input placeholder="Пароль" type="password" className={styles.password} />
+    <AuthWrapper
+      onSubmit={onSubmit}
+      className={cx(styles.root, className)}
+      title="Аутентификация"
+    >
+      <Input
+        name="email"
+        placeholder="Адрес электронной почты"
+        value={formik.values.email}
+        onChange={formik.handleChange}
+      />
+      <Input
+        placeholder="Пароль"
+        name="password"
+        type="password"
+        onChange={formik.handleChange}
+        value={formik.values.password}
+        className={styles.password}
+      />
 
       <Button fullWidth className={styles.button}>
         Войти

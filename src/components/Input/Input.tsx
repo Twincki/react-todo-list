@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import cx from "classnames";
-import { BiShow, BiHide } from 'react-icons/bi';
+import { BiShow, BiHide } from "react-icons/bi";
 
 import styles from "./Input.module.scss";
 
@@ -12,12 +12,20 @@ interface InputProps {
   type?: InputType;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
+  name?: string;
 }
 
 export function Input(props: InputProps) {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
-  const { placeholder, value, onChange, type: baseType = "text", className } = props;
+  const {
+    placeholder,
+    value,
+    onChange,
+    type: baseType = "text",
+    className,
+    name,
+  } = props;
 
   const onChangeVisible = () => setIsPasswordVisible((prevState) => !prevState);
 
@@ -38,6 +46,7 @@ export function Input(props: InputProps) {
     <div className={cx(styles.root, mods, className)}>
       <span className={styles.span}>{placeholder}</span>
       <input
+        name={name}
         type={type}
         className={styles.input}
         value={value}
@@ -45,7 +54,10 @@ export function Input(props: InputProps) {
       />
 
       {isPassword && (
-        <span className={cx({ [styles.visible]: isPasswordVisible })} onClick={onChangeVisible}>
+        <span
+          className={cx({ [styles.visible]: isPasswordVisible })}
+          onClick={onChangeVisible}
+        >
           <BiShow size={23} className={cx(styles.icon, styles.show)} />
           <BiHide size={23} className={cx(styles.icon, styles.hide)} />
         </span>
