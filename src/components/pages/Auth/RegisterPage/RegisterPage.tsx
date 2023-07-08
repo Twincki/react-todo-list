@@ -1,8 +1,9 @@
 import cx from "classnames";
 import { Button } from "../../../Button/Button";
 import { Input } from "../../../Input/Input";
+import { AuthWrapper } from "../lib/components/AuthWrapper/AuthWrapper";
+import { ROUTES } from "../../../shared/lib/consts";
 import { AuthLink } from "../lib/components/AuthLink/AuthLink";
-import { ROUTES } from '../../../shared/lib/consts';
 
 import styles from "./RegisterPage.module.scss";
 
@@ -13,11 +14,8 @@ interface RegisterProps {
 export function RegisterPage(props: RegisterProps) {
   const { className } = props;
 
-
   return (
-    <div className={cx(styles.root, className)}>
-      <h2 className={styles.title}>Регистрация</h2>
-
+    <AuthWrapper className={cx(styles.root, className)} title="Регистрация">
       <Input placeholder="Адрес электронной почты" className={styles.email} />
       <Input placeholder="Пароль" type="password" className={styles.password} />
       <Input
@@ -30,7 +28,11 @@ export function RegisterPage(props: RegisterProps) {
         ВОЙТИ
       </Button>
 
-      <AuthLink aditionalText='Уже зарегистрированы?' to={ROUTES.LOGIN} title='Войти' />
-    </div>
+      <AuthLink
+        additionalText="Уже зарегистрированы?"
+        to={ROUTES.LOGIN}
+        title="Войти"
+      />
+    </AuthWrapper>
   );
 }
