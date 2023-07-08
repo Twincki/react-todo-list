@@ -1,7 +1,7 @@
 import cx from "classnames";
 import { Button } from "../../../Button/Button";
 import { Input } from "../../../Input/Input";
-import { Link } from 'react-router-dom';
+import { AuthLink } from "../lib/components/AuthLink/AuthLink";
 import { ROUTES } from '../../../shared/lib/consts';
 
 import styles from "./RegisterPage.module.scss";
@@ -12,6 +12,8 @@ interface RegisterProps {
 
 export function RegisterPage(props: RegisterProps) {
   const { className } = props;
+
+
   return (
     <div className={cx(styles.root, className)}>
       <h2 className={styles.title}>Регистрация</h2>
@@ -28,11 +30,7 @@ export function RegisterPage(props: RegisterProps) {
         ВОЙТИ
       </Button>
 
-      <div className={styles.register}>
-        <span>Уже зарегистрированы?</span>
-        {" "}
-        <Link to={ROUTES.LOGIN}>Войти</Link>
-      </div>
+      <AuthLink aditionalText='Уже зарегистрированы?' to={ROUTES.LOGIN} title='Войти' />
     </div>
   );
 }

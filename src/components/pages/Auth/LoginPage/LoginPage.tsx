@@ -1,7 +1,8 @@
 import cx from 'classnames';
 import { Input } from '../../../Input/Input';
 import { Button } from '../../../Button/Button';
-import { Link } from 'react-router-dom';
+import { AuthWrapper } from '../lib/components/AuthWrapper/AuthWrapper';
+import { AuthLink } from '../lib/components/AuthLink/AuthLink';
 import { ROUTES } from '../../../shared/lib/consts';
 
 import styles from './LoginPage.module.scss';
@@ -14,19 +15,13 @@ export function LoginPage(props: LoginProps) {
   const { className } = props;
 
   return (
-    <div className={cx(styles.root, className)}>
-      <h2 className={styles.title}>Аутентификация</h2>
-
-      <Input placeholder='Адрес электронной почты' className={styles.email} />
+    <AuthWrapper className={cx(styles.root, className)} title='Аутентификация'>
+      <Input placeholder='Адрес электронной почты' />
       <Input placeholder='Пароль' type='password' className={styles.password} />
 
       <Button fullWidth className={styles.button}>Войти</Button>
 
-      <div className={styles.register}>
-        <span>Не зарегистрированы?</span>
-        {" "}
-        <Link to={ROUTES.REGISRER}>Регистрация</Link>
-      </div>
-    </div>
+      <AuthLink aditionalText='Не зарегистрированы?' to={ROUTES.REGISRER} title='Регистрация' />
+    </AuthWrapper>
   )
 }
