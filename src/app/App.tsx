@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { LoginPage } from "../pages/LoginPage";
-import { RegisterPage } from "../pages/RegisterPage";
+import { LoginPage } from "pages/LoginPage";
+import { RegisterPage } from "pages/RegisterPage";
 
-import './styles/themes/light.scss';
 import './styles/index.scss';
 
 function App() {

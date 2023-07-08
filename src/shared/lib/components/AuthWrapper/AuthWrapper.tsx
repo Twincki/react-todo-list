@@ -1,7 +1,7 @@
+import { ReactNode } from "react";
 import cx from "classnames";
 
 import styles from "./AuthWrapper.module.scss";
-import { ReactNode } from "react";
 
 interface AuthWrapperProps {
   className?: string;

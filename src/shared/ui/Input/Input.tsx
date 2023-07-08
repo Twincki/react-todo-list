@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
-import cx from "classnames";
 import { BiShow, BiHide } from "react-icons/bi";
+import cx from "classnames";
 
 import styles from "./Input.module.scss";
 
