@@ -1,6 +1,8 @@
 import cx from 'classnames';
 import { Input } from '../../../Input/Input';
 import { Button } from '../../../Button/Button';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../../shared/lib/consts';
 
 import styles from './LoginPage.module.scss';
 
@@ -23,7 +25,7 @@ export function LoginPage(props: LoginProps) {
       <div className={styles.register}>
         <span>Не зарегистрированы?</span>
         {" "}
-        <a href="/register">Регистрация</a>
+        <Link to={ROUTES.REGISRER}>Регистрация</Link>
       </div>
     </div>
   )
