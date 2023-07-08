@@ -1,13 +1,13 @@
 import cx from "classnames";
 import { Input } from "../../../../shared/ui/Input/Input";
 import { Button } from "../../../../shared/ui/Button/Button";
-import { AuthWrapper } from "../../../../shared/components/AuthWrapper/AuthWrapper";
-import { AuthLink } from "../../../../shared/components/AuthLink/AuthLink";
+import { AuthWrapper } from "../../../../shared/lib/components/AuthWrapper/AuthWrapper";
+import { AuthLink } from "../../../../shared/lib/components/AuthLink/AuthLink";
+import { ROUTES } from "../../../../shared/lib/types/consts";
 import {
   loginInitialValues,
   loginValidationSchema,
 } from "../../model/formik/login";
-import { ROUTES } from "../../../../shared/types/consts";
 import { useFormik } from "formik";
 
 import styles from "./LoginPage.module.scss";

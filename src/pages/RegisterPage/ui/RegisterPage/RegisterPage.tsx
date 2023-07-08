@@ -1,9 +1,9 @@
 import cx from "classnames";
 import { Button } from "../../../../shared/ui/Button/Button";
 import { Input } from "../../../../shared/ui/Input/Input";
-import { AuthWrapper } from "../../../../shared/components/AuthWrapper/AuthWrapper";
-import { ROUTES } from "../../../../shared/types/consts";
-import { AuthLink } from "../../../../shared/components/AuthLink/AuthLink";
+import { AuthWrapper } from "../../../../shared/lib/components/AuthWrapper/AuthWrapper";
+import { ROUTES } from "../../../../shared/lib/types/consts";
+import { AuthLink } from "../../../../shared/lib/components/AuthLink/AuthLink";
 import { useFormik } from "formik";
 import {
   registerInitialValues,
