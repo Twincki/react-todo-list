@@ -1,0 +1,47 @@
+.root {
+  padding: 41px 60px;
+  background-color: #fff;
+
+  min-width: 470px;
+}
+
+.title {
+  color: #000;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.email {
+  margin-top: 30px;
+}
+
+.password {
+  margin-top: 15px;
+}
+
+.button {
+  margin-top: 25px;
+}
+
+.register {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+
+  span {
+    color: #000;
+  }
+
+  a {
+    color: #0066DD;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-bottom-color: currentColor;
+    }
+  }
+}

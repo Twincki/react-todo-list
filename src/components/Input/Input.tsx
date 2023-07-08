@@ -11,14 +11,15 @@ interface InputProps {
   placeholder: string;
   type?: InputType;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
 }
 
 export function Input(props: InputProps) {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
-  const { placeholder, value, onChange, type: baseType = "text" } = props;
+  const { placeholder, value, onChange, type: baseType = "text", className } = props;
 
-  const onChangeVisible = () => setIsVisible((prevState) => !prevState);
+  const onChangeVisible = () => setIsPasswordVisible((prevState) => !prevState);
 
   // Так как это необязательный параметр, при отсутсвии передаётся undefined
   // Для этого делается проверка, так как в случае undefined, при проверки legnth выскачит ошибка
@@ -29,12 +30,12 @@ export function Input(props: InputProps) {
   // В том случае, если это не пароль (isPassword), показываешь базовый тип (InputType)
   // В том случае, если это пароль (isPassword), но он не показывается (isVisible), показываешь базовый тип (InputType)
   // В том случае, если это пароль (isPassword), и он показывается (isVisible), передавать text, чтобы пароль показать
-  const type = isPassword && isVisible ? "text" : baseType;
+  const type = isPassword && isPasswordVisible ? "text" : baseType;
 
   const mods = { [styles.active]: isValue };
 
   return (
-    <div className={cx(styles.root, mods)}>
+    <div className={cx(styles.root, mods, className)}>
       <span className={styles.span}>{placeholder}</span>
       <input
         type={type}
@@ -44,7 +45,7 @@ export function Input(props: InputProps) {
       />
 
       {isPassword && (
-        <span className={cx({ [styles.visible]: isVisible })} onClick={onChangeVisible}>
+        <span className={cx({ [styles.visible]: isPasswordVisible })} onClick={onChangeVisible}>
           <BiShow size={23} className={cx(styles.icon, styles.show)} />
           <BiHide size={23} className={cx(styles.icon, styles.hide)} />
         </span>

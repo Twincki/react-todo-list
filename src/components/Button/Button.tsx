@@ -1,39 +1,42 @@
-import { ReactNode } from "react";
+import { ReactNode, ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.scss";
 import cx from "classnames";
 
 type ButonSizes = "small" | "medium";
-type ButtonBgColor = "primary" | "secondary";
+type ButtonColor = "primary" | "secondary";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  onClick?: () => void;
   size?: ButonSizes;
   fullWidth?: boolean;
-  bgColor?: ButtonBgColor;
+  color?: ButtonColor;
+  className?: string;
+  onClick?: () => void;
 }
 
 export function Button(props: ButtonProps) {
   const {
     children,
-    onClick,
-    size = "medium",
     fullWidth,
-    bgColor = "primary",
+    size = "medium",
+    color = "primary",
+    onClick,
+    className,
+    ...otherProps
   } = props;
 
-  const mods = {
-    [styles.fullWidth]: fullWidth,
-  };
+  const mods = { [styles.fullWidth]: fullWidth };
 
-  const buttonOption = [styles[bgColor]];
-
-  const additional = [styles[size]];
+  const additional = [
+    styles[size],
+    styles[color]
+  ];
 
   return (
     <button
+      {...otherProps}
       onClick={onClick}
-      className={cx(styles.root, mods, additional, buttonOption)}
+      className={cx(styles.root, mods, additional, className)}
     >
       {children}
     </button>

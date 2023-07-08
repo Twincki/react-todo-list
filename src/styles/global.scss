@@ -26,6 +26,12 @@
 }
 
 body {
-  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  height: 100vh;
+
+  background-color: var(--main-bg);
   font-family: BrutalType, sans-serif;
 }

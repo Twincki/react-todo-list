@@ -26,9 +26,11 @@
 
 .primary {
   background-color: var(--button-primary);
+
   &:hover {
     background-color: var(--button-bg-primary-hover);
   }
+  
   &:active {
     background-color: var(--button-bg-primary-active);
   }
