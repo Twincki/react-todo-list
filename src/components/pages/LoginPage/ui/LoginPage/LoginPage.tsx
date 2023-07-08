@@ -1,10 +1,13 @@
 import cx from "classnames";
-import { Input } from "../../../Input/Input";
-import { Button } from "../../../Button/Button";
-import { AuthWrapper } from "../lib/components/AuthWrapper/AuthWrapper";
-import { AuthLink } from "../lib/components/AuthLink/AuthLink";
-import { loginInitialValues, loginValidationSchema } from "../lib/formik/login";
-import { ROUTES } from "../../../shared/lib/consts";
+import { Input } from "../../../../shared/ui/Input/Input";
+import { Button } from "../../../../shared/ui/Button/Button";
+import { AuthWrapper } from "../../../../shared/components/AuthWrapper/AuthWrapper";
+import { AuthLink } from "../../../../shared/components/AuthLink/AuthLink";
+import {
+  loginInitialValues,
+  loginValidationSchema,
+} from "../../model/formik/login";
+import { ROUTES } from "../../../../shared/types/consts";
 import { useFormik } from "formik";
 
 import styles from "./LoginPage.module.scss";
@@ -12,7 +15,6 @@ import styles from "./LoginPage.module.scss";
 interface LoginProps {
   className?: string;
 }
-
 
 export function LoginPage(props: LoginProps) {
   const { className } = props;

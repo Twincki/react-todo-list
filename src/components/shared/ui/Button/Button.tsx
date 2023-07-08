@@ -1,5 +1,5 @@
 import { ReactNode, ButtonHTMLAttributes } from "react";
-import styles from "./Button.module.scss";
+import styles from "./button.module.scss";
 import cx from "classnames";
 
 type ButtonSizes = "small" | "medium";

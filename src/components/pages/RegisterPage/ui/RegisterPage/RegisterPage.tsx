@@ -1,11 +1,14 @@
 import cx from "classnames";
-import { Button } from "../../../Button/Button";
-import { Input } from "../../../Input/Input";
-import { AuthWrapper } from "../lib/components/AuthWrapper/AuthWrapper";
-import { ROUTES } from "../../../shared/lib/consts";
-import { AuthLink } from "../lib/components/AuthLink/AuthLink";
-import { registerInitialValues, registerValidationSchema } from "../lib/formik/register";
+import { Button } from "../../../../shared/ui/Button/Button";
+import { Input } from "../../../../shared/ui/Input/Input";
+import { AuthWrapper } from "../../../../shared/components/AuthWrapper/AuthWrapper";
+import { ROUTES } from "../../../../shared/types/consts";
+import { AuthLink } from "../../../../shared/components/AuthLink/AuthLink";
 import { useFormik } from "formik";
+import {
+  registerInitialValues,
+  registerValidationSchema,
+} from "../../model/formik/register";
 
 import styles from "./RegisterPage.module.scss";
 
@@ -21,11 +24,15 @@ export function RegisterPage(props: RegisterProps) {
     validationSchema: registerValidationSchema(),
     onSubmit: (values: any) => {
       console.log(values);
-    }
-  })
+    },
+  });
 
   return (
-    <AuthWrapper className={cx(styles.root, className)} title="Регистрация" onSubmit={formik.handleSubmit}>
+    <AuthWrapper
+      className={cx(styles.root, className)}
+      title="Регистрация"
+      onSubmit={formik.handleSubmit}
+    >
       <Input
         placeholder="Адрес электронной почты"
         name="email"
@@ -34,7 +41,8 @@ export function RegisterPage(props: RegisterProps) {
         onChange={formik.handleChange}
         error={formik.errors.email as string}
       />
-      <Input placeholder="Пароль"
+      <Input
+        placeholder="Пароль"
         type="password"
         className={styles.password}
         name="password"

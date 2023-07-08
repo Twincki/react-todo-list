@@ -1,9 +1,3 @@
-@import "../../assets/styles/mixins.scss";
-
-.root {
-  
-}
-
 .wrapper {
   position: relative;
   max-width: 350px;
@@ -22,7 +16,7 @@
   }
 
   .span {
-    color: var(--input-error-color)
+    color: var(--input-error-color);
   }
 }
 

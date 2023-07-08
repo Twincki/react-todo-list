@@ -1,6 +1,6 @@
 import cx from "classnames";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../../../../shared/lib/consts";
+import { ROUTES } from "../../types/consts";
 
 import styles from "./AuthLink.module.scss";
 
