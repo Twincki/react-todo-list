@@ -29,8 +29,8 @@ export function Input(props: InputProps) {
 
   const onChangeVisible = () => setIsPasswordVisible((prevState) => !prevState);
 
-  // Так как это необязательный параметр, при отсутсвии передаётся undefined
-  // Для этого делается проверка, так как в случае undefined, при проверки legnth выскачит ошибка
+  // Так как это необязательный параметр, при отсутствии передаётся undefined
+  // Для этого делается проверка, так как в случае undefined, при проверки length выскочит ошибка
   const isValue = Boolean(value && value.length);
 
   const isPassword = baseType === "password";

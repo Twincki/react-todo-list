@@ -5,6 +5,7 @@ import { AuthWrapper } from "../lib/components/AuthWrapper/AuthWrapper";
 import { AuthLink } from "../lib/components/AuthLink/AuthLink";
 import { ROUTES } from "../../../shared/lib/consts";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 import styles from "./LoginPage.module.scss";
 
@@ -23,11 +24,20 @@ export function LoginPage(props: LoginProps) {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
+    validationSchema: Yup.object().shape({
+      email: Yup.string()
+        .email("Неверный формат электронной почты")
+        .required("Электронная почта обязательна"),
+      password: Yup.string().max(40).required("Необходим пароль"),
+    }),
   });
 
   function onSubmit(event: any) {
     event.preventDefault();
   }
+
+  console.log(formik.errors, formik.values);
+
   return (
     <AuthWrapper
       onSubmit={onSubmit}
