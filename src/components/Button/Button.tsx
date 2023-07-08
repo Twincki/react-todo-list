@@ -2,12 +2,12 @@ import { ReactNode, ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.scss";
 import cx from "classnames";
 
-type ButonSizes = "small" | "medium";
+type ButtonSizes = "small" | "medium";
 type ButtonColor = "primary" | "secondary";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  size?: ButonSizes;
+  size?: ButtonSizes;
   fullWidth?: boolean;
   color?: ButtonColor;
   className?: string;
@@ -27,10 +27,7 @@ export function Button(props: ButtonProps) {
 
   const mods = { [styles.fullWidth]: fullWidth };
 
-  const additional = [
-    styles[size],
-    styles[color]
-  ];
+  const additional = [styles[size], styles[color]];
 
   return (
     <button

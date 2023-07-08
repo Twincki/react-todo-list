@@ -5,7 +5,7 @@
   cursor: pointer;
 
   font-weight: 500;
-  font-family: Brutal Type;
+  font-family: Brutal Type, sans-serif;
   font-size: 12px;
   color: var(--button-font-color);
   text-transform: uppercase;
@@ -30,7 +30,7 @@
   &:hover {
     background-color: var(--button-bg-primary-hover);
   }
-  
+
   &:active {
     background-color: var(--button-bg-primary-active);
   }

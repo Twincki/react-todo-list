@@ -1,0 +1,48 @@
+.root {
+  background-color: #fff;
+  padding: 41px 60px;
+  min-width: 470px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.email {
+  margin-top: 30px;
+}
+
+.password {
+  margin-top: 15px;
+}
+
+.repeatPassword {
+  margin-top: 15px;
+}
+
+.button {
+  margin-top: 25px;
+}
+
+.register {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  span {
+    color: #000000;
+  }
+
+  a {
+    color: #0066dd;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+
+    &:hover {
+      border-bottom: 1px solid #0066dd;
+    }
+  }
+}
