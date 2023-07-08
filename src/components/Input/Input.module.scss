@@ -59,15 +59,18 @@
 }
 
 .hide {
-  transform: translateY(70px);
+  // transform: translateY(70px);
+  opacity: 0;
 }
 
 .visible {
   .show {
-    transform: translateY(-70px);
+    // transform: translateY(-70px);
+    opacity: 1;
   }
 
   .hide {
-    transform: translateY(-50%);
+    // transform: translateY(-50%);
+    opacity: 1;
   }
 }

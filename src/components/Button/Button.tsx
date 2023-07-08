@@ -26,14 +26,14 @@ export function Button(props: ButtonProps) {
     [styles.fullWidth]: fullWidth,
   };
 
-  const buttonColor = [styles[bgColor]];
+  const buttonOption = [styles[bgColor]];
 
   const additional = [styles[size]];
 
   return (
     <button
       onClick={onClick}
-      className={cx(styles.root, mods, additional, buttonColor)}
+      className={cx(styles.root, mods, additional, buttonOption)}
     >
       {children}
     </button>
