@@ -7,12 +7,13 @@ import styles from "./Input.module.scss";
 type InputType = "text" | "password";
 
 interface InputProps {
-  value?: string;
   placeholder: string;
+  value?: string;
   type?: InputType;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  className?: string;
   name?: string;
+  className?: string;
+  error?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function Input(props: InputProps) {
@@ -25,6 +26,7 @@ export function Input(props: InputProps) {
     type: baseType = "text",
     className,
     name,
+    error,
   } = props;
 
   const onChangeVisible = () => setIsPasswordVisible((prevState) => !prevState);
@@ -32,6 +34,7 @@ export function Input(props: InputProps) {
   // Так как это необязательный параметр, при отсутствии передаётся undefined
   // Для этого делается проверка, так как в случае undefined, при проверки length выскочит ошибка
   const isValue = Boolean(value && value.length);
+  const isError = Boolean(error && error.length);
 
   const isPassword = baseType === "password";
 
@@ -40,28 +43,35 @@ export function Input(props: InputProps) {
   // В том случае, если это пароль (isPassword), и он показывается (isVisible), передавать text, чтобы пароль показать
   const type = isPassword && isPasswordVisible ? "text" : baseType;
 
-  const mods = { [styles.active]: isValue };
+  const mods = {
+    [styles.active]: isValue,
+    [styles.error]: isError
+  };
 
   return (
     <div className={cx(styles.root, mods, className)}>
-      <span className={styles.span}>{placeholder}</span>
-      <input
-        name={name}
-        type={type}
-        className={styles.input}
-        value={value}
-        onChange={onChange}
-      />
+      <div className={styles.wrapper}>
+        <span className={styles.span}>{placeholder}</span>
+        <input
+          name={name}
+          type={type}
+          className={styles.input}
+          value={value}
+          onChange={onChange}
+        />
 
-      {isPassword && (
-        <span
-          className={cx({ [styles.visible]: isPasswordVisible })}
-          onClick={onChangeVisible}
-        >
-          <BiShow size={23} className={cx(styles.icon, styles.show)} />
-          <BiHide size={23} className={cx(styles.icon, styles.hide)} />
-        </span>
-      )}
+        {isPassword && (
+          <span
+            className={cx({ [styles.visible]: isPasswordVisible })}
+            onClick={onChangeVisible}
+          >
+            <BiShow size={23} className={cx(styles.icon, styles.show)} />
+            <BiHide size={23} className={cx(styles.icon, styles.hide)} />
+          </span>
+        )}
+      </div>
+
+      {isError && <span className={styles.error}>{error}</span>}
     </div>
   );
 }
