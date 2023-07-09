@@ -1,13 +1,15 @@
 import cx from "classnames";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 
 import { Input } from "shared/ui/Input/Input";
 import { Button } from "shared/ui/Button/Button";
 import { AuthWrapper } from "shared/lib/components/AuthWrapper/AuthWrapper";
 import { AuthLink } from "shared/lib/components/AuthLink/AuthLink";
-import { ROUTES } from "shared/lib/types/consts";
+import { AppRoutes } from "shared/lib/types/consts";
 
-import { loginInitialValues, loginValidationSchema } from "../../model/formik/login";
+import { LoginValues, loginInitialValues, loginValidationSchema } from "../../model/formik/login";
+import { loginByEmailAndPassword } from "../../model/services/loginByEmailAndPassword";
 
 import styles from "./LoginPage.module.scss";
 
@@ -16,14 +18,21 @@ interface LoginProps {
 }
 
 export function LoginPage(props: LoginProps) {
+  const navigate = useNavigate();
+
   const { className } = props;
+
+  const onSubmitForm = async (values: LoginValues) => {
+    const { email, password } = values;
+
+    await loginByEmailAndPassword({ email, password }, formik);
+    navigate(AppRoutes.APP)
+  }
 
   const formik = useFormik({
     initialValues: loginInitialValues(),
     validationSchema: loginValidationSchema(),
-    onSubmit: (values: any) => {
-      alert(JSON.stringify(values, null, 2));
-    },
+    onSubmit: onSubmitForm,
   });
 
   return (
@@ -49,13 +58,13 @@ export function LoginPage(props: LoginProps) {
         className={styles.password}
       />
 
-      <Button fullWidth className={styles.button}>
+      <Button fullWidth className={styles.button} type="submit">
         Войти
       </Button>
 
       <AuthLink
         additionalText="Не зарегистрированы?"
-        to={ROUTES.REGISTER}
+        to={AppRoutes.REGISTER}
         title="Регистрация"
       />
     </AuthWrapper>

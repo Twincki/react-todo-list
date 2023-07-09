@@ -1,13 +1,13 @@
 import cx from "classnames";
 import { Link } from "react-router-dom";
-import { ROUTES } from "shared/lib/types/consts";
+import { AppRoutes } from "shared/lib/types/consts";
 
 import styles from "./AuthLink.module.scss";
 
 interface AuthLinkProps {
   className?: string;
   additionalText: string;
-  to: ROUTES;
+  to: AppRoutes;
   title: string;
 }
 

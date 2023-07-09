@@ -13,7 +13,7 @@ export function registerValidationSchema() {
     email: Yup.string()
       .email("Неверный формат электронной почты")
       .required("Обязательное поле"),
-    password: Yup.string().min(4, "Минимальный пароль 4 символа").max(40, "Максимальный пароль 40 символов").required("Обязательное поле"),
+    password: Yup.string().min(5, "Минимальный пароль 5 символов").max(40, "Максимальный пароль 40 символов").required("Обязательное поле"),
     repeatPassword: Yup.string().oneOf([Yup.ref("password"), null], "Пароли не совпадают")
   })
 }

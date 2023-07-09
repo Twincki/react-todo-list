@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import { Button } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
 import { AuthWrapper } from "shared/lib/components/AuthWrapper/AuthWrapper";
-import { ROUTES } from "shared/lib/types/consts";
+import { AppRoutes } from "shared/lib/types/consts";
 import { AuthLink } from "shared/lib/components/AuthLink/AuthLink";
 
 import {
@@ -68,7 +68,7 @@ export function RegisterPage(props: RegisterProps) {
 
       <AuthLink
         additionalText="Уже зарегистрированы?"
-        to={ROUTES.LOGIN}
+        to={AppRoutes.LOGIN}
         title="Войти"
       />
     </AuthWrapper>
