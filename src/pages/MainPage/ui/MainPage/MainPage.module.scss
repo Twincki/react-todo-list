@@ -7,3 +7,15 @@
   min-height: 825px;
   filter: drop-shadow(0px 7px 25px #8ca4d8);
 }
+
+.root {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.button {
+  padding-left: 39px;
+  padding-right: 39px;
+}
