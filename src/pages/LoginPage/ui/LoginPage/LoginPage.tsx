@@ -1,33 +1,36 @@
-import cx from "classnames";
-import { useNavigate } from "react-router-dom";
-import { useFormik } from "formik";
+import cx from 'classnames';
+import { useNavigate } from 'react-router-dom';
+import { useFormik } from 'formik';
 
-import { Input } from "shared/ui/Input/Input";
-import { Button } from "shared/ui/Button/Button";
-import { AuthWrapper } from "shared/lib/components/AuthWrapper/AuthWrapper";
-import { AuthLink } from "shared/lib/components/AuthLink/AuthLink";
-import { AppRoutes } from "shared/lib/types/consts";
+import { Input } from 'shared/ui/Input/Input';
+import { Button } from 'shared/ui/Button/Button';
+import { AuthWrapper } from 'shared/lib/components/AuthWrapper/AuthWrapper';
+import { AuthLink } from 'shared/lib/components/AuthLink/AuthLink';
+import { AppRoutes } from 'shared/lib/types/consts';
 
-import { LoginValues, loginInitialValues, loginValidationSchema } from "../../model/formik/login";
-import { loginByEmailAndPassword } from "../../model/services/loginByEmailAndPassword";
+import {
+  LoginValues,
+  loginInitialValues,
+  loginValidationSchema,
+} from '../../model/formik/login';
+import { loginByEmailAndPassword } from '../../model/services/loginByEmailAndPassword';
 
-import styles from "./LoginPage.module.scss";
+import styles from './LoginPage.module.scss';
 
 interface LoginProps {
   className?: string;
 }
 
 export function LoginPage(props: LoginProps) {
+  // Доступен в reactDom, позволяет переходить переходить по страницам
   const navigate = useNavigate();
 
   const { className } = props;
 
   const onSubmitForm = async (values: LoginValues) => {
-    const { email, password } = values;
-
-    await loginByEmailAndPassword({ email, password }, formik);
-    navigate(AppRoutes.APP)
-  }
+    await loginByEmailAndPassword(values, formik);
+    navigate(AppRoutes.APP);
+  };
 
   const formik = useFormik({
     initialValues: loginInitialValues(),

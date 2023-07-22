@@ -1,32 +1,41 @@
-import cx from "classnames";
-import { useFormik } from "formik";
+import cx from 'classnames';
+import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 
-import { Button } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input";
-import { AuthWrapper } from "shared/lib/components/AuthWrapper/AuthWrapper";
-import { AppRoutes } from "shared/lib/types/consts";
-import { AuthLink } from "shared/lib/components/AuthLink/AuthLink";
+import { Button } from 'shared/ui/Button/Button';
+import { Input } from 'shared/ui/Input/Input';
+import { AuthWrapper } from 'shared/lib/components/AuthWrapper/AuthWrapper';
+import { AppRoutes } from 'shared/lib/types/consts';
+import { AuthLink } from 'shared/lib/components/AuthLink/AuthLink';
 
 import {
+  RegisterValues,
   registerInitialValues,
   registerValidationSchema,
-} from "../../model/formik/register";
+} from '../../model/formik/register';
 
-import styles from "./RegisterPage.module.scss";
+import styles from './RegisterPage.module.scss';
+import { registerByEmailAndPassword } from 'pages/RegisterPage/model/service/registerByEmailAndPassword';
 
 interface RegisterProps {
   className?: string;
 }
 
 export function RegisterPage(props: RegisterProps) {
+  // Доступен в reactDom, позволяет переходить переходить по страницам
+  const navigate = useNavigate();
+
   const { className } = props;
+
+  const onSubmitFormRegister = async (values: RegisterValues) => {
+    await registerByEmailAndPassword(values, formik);
+    navigate(AppRoutes.APP);
+  };
 
   const formik = useFormik({
     initialValues: registerInitialValues(),
     validationSchema: registerValidationSchema(),
-    onSubmit: (values: any) => {
-      console.log(values);
-    },
+    onSubmit: onSubmitFormRegister,
   });
 
   return (
@@ -63,7 +72,7 @@ export function RegisterPage(props: RegisterProps) {
       />
 
       <Button fullWidth className={styles.button}>
-        Войти
+        Регистрация
       </Button>
 
       <AuthLink
