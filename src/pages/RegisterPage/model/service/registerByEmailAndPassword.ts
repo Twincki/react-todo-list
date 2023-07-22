@@ -1,6 +1,7 @@
 import { $api } from 'shared/api/api';
 import { RegisterValues } from '../formik/register';
 import { saveCookie } from 'shared/cookies/cookies';
+import { USER_LOGGED } from 'shared/lib/types/consts';
 
 export async function registerByEmailAndPassword(
   { email, password }: RegisterValues,
@@ -11,7 +12,7 @@ export async function registerByEmailAndPassword(
       email,
       password,
     });
-    saveCookie('loginId', data.id);
+    saveCookie(USER_LOGGED, data.id);
   } catch (error) {
     const message = error.response.data.message;
 
