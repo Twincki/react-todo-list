@@ -3,6 +3,7 @@ import styles from './MainPage.module.scss';
 import { Search } from 'widgets/Search';
 import { NumberTask } from 'widgets/NumberTask';
 import { Button } from 'shared/ui/Button/Button';
+import { Chip } from 'shared/ui/Chip/Chip';
 
 interface MainPageProps {
   className?: string;
@@ -20,7 +21,10 @@ export const MainPage = ({ className }: MainPageProps) => {
         </Button>
       </div>
 
-      <h1>MAIN PAGE</h1>
+      <Chip taskStatus="В процессе" />
+      <Chip taskStatus="В процессе" />
+      <Chip taskStatus="В процессе" />
+      <Chip taskStatus="В процессе" />
     </div>
   );
 };

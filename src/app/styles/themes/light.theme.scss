@@ -26,4 +26,17 @@
   // NUMBER-TASK
   --task-color-number: #ef5da8;
   --task-color-text: #1d262c;
+
+  //CHIP
+  --chip-await-color: #f2994a;
+  --chip-await-bg: rgba(242, 153, 74, 0.2);
+
+  --chip-progress-color: #56ccf2;
+  --chip-progress-bg: rgba(86, 204, 242, 0.2);
+
+  --chip-done-color: #28af60;
+  --chip-done-bg: rgba(39, 174, 96, 0.2);
+
+  --chip-canceled-color: #eb5757;
+  --chip-canceled-bg: rgba(235, 87, 87, 0.2);
 }

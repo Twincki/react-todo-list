@@ -1,0 +1,32 @@
+.root {
+  padding: 2px 17px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  max-width: 97px;
+
+  font-weight: 400;
+  font-family: 'BrutalType', sans-serif;
+  font-size: 11px;
+  margin-top: 50px;
+}
+
+.awaiting {
+  color: var(--chip-await-color);
+  background-color: var(--chip-await-bg);
+}
+
+.progress {
+  color: var(--chip-progress-color);
+  background-color: var(--chip-progress-bg);
+}
+
+.done {
+  color: var(--chip-done-color);
+  background-color: var(--chip-done-bg);
+}
+
+.canceled {
+  color: var(--chip-canceled-color);
+  background-color: var(--chip-canceled-bg);
+}

@@ -1,10 +1,10 @@
-import { ReactNode, ButtonHTMLAttributes } from "react";
-import cx from "classnames";
+import { ReactNode, ButtonHTMLAttributes } from 'react';
+import cx from 'classnames';
 
-import styles from "./Button.module.scss";
+import styles from './Button.module.scss';
 
-type ButtonSizes = "small" | "medium";
-type ButtonColor = "primary" | "secondary";
+type ButtonSizes = 'small' | 'medium';
+type ButtonColor = 'primary' | 'secondary';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -19,8 +19,8 @@ export function Button(props: ButtonProps) {
   const {
     children,
     fullWidth,
-    size = "medium",
-    color = "primary",
+    size = 'medium',
+    color = 'primary',
     onClick,
     className,
     ...otherProps

@@ -1,4 +1,4 @@
-@import "./font.scss";
+@import './font.scss';
 @import './themes/light.theme.scss';
 
 * {
@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   height: 100vh;
 
   background-color: var(--main-bg);
